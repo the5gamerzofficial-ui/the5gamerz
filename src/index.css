@@ -84,6 +84,10 @@
     box-shadow: 0 0 5px hsl(270 60% 55% / 0.3), 0 0 15px hsl(270 60% 55% / 0.1);
     border-color: hsl(270 60% 55% / 0.4);
   }
+  .neon-border-green {
+    box-shadow: 0 0 5px hsl(145 65% 45% / 0.3), 0 0 15px hsl(145 65% 45% / 0.1);
+    border-color: hsl(145 65% 45% / 0.4);
+  }
   .glass {
     @apply bg-card/60 backdrop-blur-xl border border-border;
   }

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 const reviews = [
@@ -11,19 +11,23 @@ const reviews = [
 
 const ReviewsCarousel = () => {
   const [current, setCurrent] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "center center"] });
+  const y = useTransform(scrollYProgress, [0, 1], [60, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
 
   const next = () => setCurrent((p) => (p + 1) % reviews.length);
   const prev = () => setCurrent((p) => (p - 1 + reviews.length) % reviews.length);
 
   return (
-    <section id="reviews" className="py-24 relative">
+    <section id="reviews" className="py-24 relative" ref={ref}>
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-      <div className="container px-4 relative z-10">
+      <motion.div className="container px-4 relative z-10" style={{ y, opacity }}>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-display text-3xl md:text-4xl text-center text-secondary text-glow-purple mb-16"
+          className="font-display text-3xl md:text-5xl text-center text-secondary text-glow-purple mb-16"
         >
           Featured Reviews
         </motion.h2>
@@ -32,10 +36,10 @@ const ReviewsCarousel = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, scale: 0.95, rotateY: 10 }}
+              animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+              exit={{ opacity: 0, scale: 0.95, rotateY: -10 }}
+              transition={{ duration: 0.4 }}
               className="glass rounded-2xl p-8 md:p-12 neon-border-purple text-center"
             >
               <span className="inline-block px-3 py-1 rounded-full bg-secondary/20 text-secondary text-xs font-heading uppercase tracking-wider mb-4">
@@ -58,24 +62,24 @@ const ReviewsCarousel = () => {
             </motion.div>
           </AnimatePresence>
 
-          <button onClick={prev} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 p-2 rounded-full glass text-muted-foreground hover:text-primary transition-colors">
+          <button onClick={prev} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-14 p-3 rounded-full glass text-muted-foreground hover:text-primary hover:neon-border transition-all">
             <ChevronLeft size={24} />
           </button>
-          <button onClick={next} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 p-2 rounded-full glass text-muted-foreground hover:text-primary transition-colors">
+          <button onClick={next} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-14 p-3 rounded-full glass text-muted-foreground hover:text-primary hover:neon-border transition-all">
             <ChevronRight size={24} />
           </button>
 
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center gap-2 mt-8">
             {reviews.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`w-2.5 h-2.5 rounded-full transition-colors ${i === current ? "bg-secondary" : "bg-muted-foreground/30"}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? "w-8 bg-secondary" : "w-3 bg-muted-foreground/30"}`}
               />
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
