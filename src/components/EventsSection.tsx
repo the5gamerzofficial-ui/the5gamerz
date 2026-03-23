@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 const events = [
@@ -26,19 +26,18 @@ const useCountdown = (targetDate: string) => {
 
 const EventCard = ({ event, index }: { event: typeof events[0]; index: number }) => {
   const countdown = useCountdown(event.date);
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "center center"] });
+  const x = useTransform(scrollYProgress, [0, 1], [-60, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -30 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      className="relative flex gap-6"
-    >
+    <motion.div ref={ref} style={{ x, opacity }} className="relative flex gap-6">
       <div className="flex flex-col items-center">
-        <div className="w-4 h-4 rounded-full bg-primary neon-border" />
-        {index < events.length - 1 && <div className="w-0.5 flex-1 bg-gradient-to-b from-primary/40 to-transparent" />}
+        <div className="w-4 h-4 rounded-full bg-accent neon-border-green" />
+        {index < events.length - 1 && <div className="w-0.5 flex-1 bg-gradient-to-b from-accent/40 to-transparent" />}
       </div>
-      <div className="flex-1 glass rounded-xl p-6 mb-8 group hover:neon-border transition-all duration-300">
+      <div className="flex-1 glass rounded-xl p-6 mb-8 group hover:neon-border transition-all duration-500">
         <div className="flex flex-wrap items-center gap-3 mb-3 text-sm text-muted-foreground">
           <span className="flex items-center gap-1"><Calendar size={14} /> {new Date(event.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</span>
           <span className="flex items-center gap-1"><Clock size={14} /> {event.time}</span>
@@ -47,11 +46,11 @@ const EventCard = ({ event, index }: { event: typeof events[0]; index: number })
         <p className="text-muted-foreground mb-4">{event.description}</p>
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex gap-3 text-xs font-display">
-            <span className="px-2 py-1 rounded bg-primary/10 text-primary">{countdown.days}d</span>
-            <span className="px-2 py-1 rounded bg-primary/10 text-primary">{countdown.hours}h</span>
-            <span className="px-2 py-1 rounded bg-primary/10 text-primary">{countdown.mins}m</span>
+            <span className="px-2 py-1 rounded bg-accent/10 text-accent">{countdown.days}d</span>
+            <span className="px-2 py-1 rounded bg-accent/10 text-accent">{countdown.hours}h</span>
+            <span className="px-2 py-1 rounded bg-accent/10 text-accent">{countdown.mins}m</span>
           </div>
-          <button className="flex items-center gap-1 text-sm text-primary font-heading uppercase tracking-wider hover:gap-2 transition-all">
+          <button className="flex items-center gap-1 text-sm text-accent font-heading uppercase tracking-wider hover:gap-2 transition-all">
             Register <ArrowRight size={14} />
           </button>
         </div>
@@ -68,7 +67,7 @@ const EventsSection = () => (
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="font-display text-3xl md:text-4xl text-center text-accent text-glow-green mb-16"
+        className="font-display text-3xl md:text-5xl text-center text-accent text-glow-green mb-16"
       >
         Upcoming Events
       </motion.h2>
