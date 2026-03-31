@@ -6,7 +6,7 @@ import aboutTeam from "@/assets/about-team.jpg";
 const stats = [
   { value: "50K+", label: "Community Members", icon: Users },
   { value: "1,200+", label: "Game Reviews", icon: Gamepad2 },
-  { value: "300+", label: "Events Hosted", icon: Trophy },
+  { value: "5", label: "Core Games", icon: Trophy },
   { value: "24/7", label: "Live Support", icon: Zap },
 ];
 
