@@ -145,9 +145,9 @@ const AboutSection = () => {
                   globe.
                 </p>
                 <p>
-                  Our editorial independence is non-negotiable. We don't accept
-                  paid reviews or sponsored scores — every opinion you read here
-                  is earned through hours of genuine gameplay.
+                  Editorial independence is non-negotiable. No paid reviews, no
+                  sponsored scores — every opinion you read here is earned
+                  through hours of genuine gameplay by one dedicated gamer.
                 </p>
               </div>
             </motion.div>
