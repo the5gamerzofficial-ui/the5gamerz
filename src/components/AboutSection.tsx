@@ -127,7 +127,7 @@ const AboutSection = () => {
               transition={{ duration: 0.7, delay: 0.2 }}
             >
               <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
-                From LAN Parties to a{" "}
+                From Solo Gaming to a{" "}
                 <span className="text-secondary text-glow-purple">
                   Global Community
                 </span>
