@@ -113,7 +113,7 @@ const AboutSection = () => {
                   Est. 2020
                 </p>
                 <p className="font-display text-xl md:text-2xl font-bold text-foreground">
-                  5 Friends. 1 Mission.
+                  1 Person. 5 Games.
                 </p>
               </div>
             </div>
