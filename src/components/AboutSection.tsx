@@ -134,9 +134,9 @@ const AboutSection = () => {
               </h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  What started as five college friends arguing about game
-                  rankings in a cramped dorm room has evolved into one of the
-                  most trusted independent gaming platforms online.
+                  What started as one gamer's deep dive into five core titles
+                  has evolved into one of the most trusted independent gaming
+                  platforms online.
                 </p>
                 <p>
                   We cover everything from AAA blockbusters to hidden indie gems,
