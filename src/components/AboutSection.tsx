@@ -83,9 +83,9 @@ const AboutSection = () => {
             <span className="text-primary text-glow-blue">The 5 Gamerz</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Born from five friends who believed gaming deserves better coverage.
-            We turned late-night sessions into a platform that now serves
-            thousands of passionate gamers worldwide.
+            One person. Five games. A passion for gaming that deserves better
+            coverage. What started as a solo mission has grown into a platform
+            that now serves thousands of passionate gamers worldwide.
           </p>
         </motion.div>
 
