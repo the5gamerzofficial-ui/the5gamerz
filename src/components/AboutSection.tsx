@@ -6,7 +6,7 @@ import aboutTeam from "@/assets/about-team.jpg";
 const stats = [
   { value: "50K+", label: "Community Members", icon: Users },
   { value: "1,200+", label: "Game Reviews", icon: Gamepad2 },
-  { value: "300+", label: "Events Hosted", icon: Trophy },
+  { value: "5", label: "Core Games", icon: Trophy },
   { value: "24/7", label: "Live Support", icon: Zap },
 ];
 
@@ -83,9 +83,9 @@ const AboutSection = () => {
             <span className="text-primary text-glow-blue">The 5 Gamerz</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Born from five friends who believed gaming deserves better coverage.
-            We turned late-night sessions into a platform that now serves
-            thousands of passionate gamers worldwide.
+            One person. Five games. A passion for gaming that deserves better
+            coverage. What started as a solo mission has grown into a platform
+            that now serves thousands of passionate gamers worldwide.
           </p>
         </motion.div>
 
@@ -113,7 +113,7 @@ const AboutSection = () => {
                   Est. 2020
                 </p>
                 <p className="font-display text-xl md:text-2xl font-bold text-foreground">
-                  5 Friends. 1 Mission.
+                  1 Person. 5 Games.
                 </p>
               </div>
             </div>
@@ -127,16 +127,16 @@ const AboutSection = () => {
               transition={{ duration: 0.7, delay: 0.2 }}
             >
               <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
-                From LAN Parties to a{" "}
+                From Solo Gaming to a{" "}
                 <span className="text-secondary text-glow-purple">
                   Global Community
                 </span>
               </h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  What started as five college friends arguing about game
-                  rankings in a cramped dorm room has evolved into one of the
-                  most trusted independent gaming platforms online.
+                  What started as one gamer's deep dive into five core titles
+                  has evolved into one of the most trusted independent gaming
+                  platforms online.
                 </p>
                 <p>
                   We cover everything from AAA blockbusters to hidden indie gems,
@@ -145,9 +145,9 @@ const AboutSection = () => {
                   globe.
                 </p>
                 <p>
-                  Our editorial independence is non-negotiable. We don't accept
-                  paid reviews or sponsored scores — every opinion you read here
-                  is earned through hours of genuine gameplay.
+                  Editorial independence is non-negotiable. No paid reviews, no
+                  sponsored scores — every opinion you read here is earned
+                  through hours of genuine gameplay by one dedicated gamer.
                 </p>
               </div>
             </motion.div>
