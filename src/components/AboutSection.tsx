@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { Shield, Gamepad2, Users, Zap, Target, Trophy } from "lucide-react";
 import logo from "@/assets/logo.png";
+import OrbitingLogos from "./OrbitingLogos";
 
 const stats = [
   { value: "50K+", label: "Community Members", icon: Users },
@@ -95,8 +96,9 @@ const AboutSection = () => {
           <motion.div
             ref={imageRef}
             style={{ y: imageY }}
-            className="relative group"
+            className="relative group flex items-center justify-center"
           >
+            <OrbitingLogos />
             <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/30 blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-700" />
             <div className="relative rounded-2xl overflow-hidden border border-border">
               <img
