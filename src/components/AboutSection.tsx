@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { Shield, Gamepad2, Users, Zap, Target, Trophy } from "lucide-react";
 import logo from "@/assets/logo.png";
+import OrbitingLogos from "./OrbitingLogos";
 
 const stats = [
   { value: "50K+", label: "Community Members", icon: Users },
