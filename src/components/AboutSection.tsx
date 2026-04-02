@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { Shield, Gamepad2, Users, Zap, Target, Trophy } from "lucide-react";
-import aboutTeam from "@/assets/about-team.jpg";
+import logo from "@/assets/logo.png";
 
 const stats = [
   { value: "50K+", label: "Community Members", icon: Users },
@@ -100,7 +100,7 @@ const AboutSection = () => {
             <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/30 blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-700" />
             <div className="relative rounded-2xl overflow-hidden border border-border">
               <img
-                src={aboutTeam}
+                src={logo}
                 alt="The 5 Gamerz team in their gaming lounge"
                 className="w-full h-auto object-cover aspect-[4/3]"
                 loading="lazy"
